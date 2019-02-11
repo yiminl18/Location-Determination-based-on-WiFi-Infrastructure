@@ -1,1 +1,33 @@
 \section{Introduction}
+\label{sec:intro}
+
+The pervasiveness of WiFi infrastructure enables a large number of services based on it. In this paper we focus on an important location-based service (LBS), which tries to determine the location of device based on WiFi connectivity data. However, such data is ``dirty'' to generate fine-grained location information, i.e., room-level location. Considering a typical scenario, when a device is connected to some WiFi access point (AP), we can conclude that the device is in the region covered by that AP, but no idea of which exact room as a region often covers multiple rooms. 
+
+As an illustrating example, WiFi connectivity data comes in the format of $\{$\textit{Mac Address, WiFi AP, Timestamp}$\}$. As shown in Table~\ref{tab:connectivity}, a device with Mac address \textit{258e} connected to WiFi AP \textit{2} at time ``\textit{2018-03-14 12:03:35}''. Now we can draw that this device must be in one of the rooms covered by $AP_2$, which are  $\{2002,2004,2014,2012,2008,2066,2051,\\2059,2052,2054,2056,2058\}$ (From Fig~\ref{fig:running}) Our goal is to decide the exact room the device is in. 
+
+\begin{figure}[!htb]
+	\centering
+	\vspace{-0.8em}
+	\includegraphics[width=1\linewidth]{running-1}
+	\caption{Example of a space with different types of rooms and four WiFi APs.}
+	%\vspace{-0.5em}
+	\label{fig:running}
+\end{figure}
+
+\begin{table}[!htb]
+	\centering
+%	\vspace{-1em}
+	\caption{Sample connectivity data from our experiments.}
+	\label{tab:connectivity}
+%	\vspace{-1em}
+	\label{tab:wifi}
+	\begin{tabular}{|c|c|c|}
+		\hline
+		MAC Address & WiFi AP & Timestamp \\ \hline
+		258e... & 2 & 2018-03-14 12:03:35  \\ \hline
+		258e... & 3 & 2018-03-14 14:15:53 \\ \hline
+		5f0b... & 1 & 2018-03-14 14:16:12 \\ \hline
+		5f0b... & 1 & 2018-03-14 14:25:36 \\ \hline
+	\end{tabular}
+	\vspace{-0.5em}
+\end{table} 
