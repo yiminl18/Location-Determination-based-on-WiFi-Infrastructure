@@ -1,9 +1,14 @@
 \section{Introduction}
 \label{sec:intro}
 
-The pervasiveness of WiFi infrastructure enables a large number of services based on it. In this paper we focus on an important location-based service (LBS), which tries to determine the location of device based on WiFi connectivity data. However, such data is ``dirty'' to generate fine-grained location information, i.e., room-level location. Considering a typical scenario, when a device is connected to some WiFi access point (AP), we can conclude that the device is in the region covered by that AP, but no idea of which exact room as a region often covers multiple rooms. 
+The pervasiveness of WiFi infrastructure enables a large number of services based on it. In this paper we focus on Location Based Service (LBS).
+LBSs use the location of a device (e.g., a smart-phone)  and  hence  of  the  owner  to  offer  personalized  information. Thousands of interesting applications have been built based on such localization techniques.~\cite{akyildiz2002survey}
+However, WiFi data is far from enough to provide location information with high quality if we use it directly. 
 
-As an illustrating example, WiFi connectivity data comes in the format of $\{$\textit{Mac Address, WiFi AP, Timestamp}$\}$. As shown in Table~\ref{tab:connectivity}, a device with Mac address \textit{258e} connected to WiFi AP \textit{2} at time ``\textit{2018-03-14 12:03:35}''. Now we can draw that this device must be in one of the rooms covered by $AP_2$, which are  $\{2002,2004,2014,2012,2008,2066,2051,\\2059,2052,2054,2056,2058\}$ (From Fig~\ref{fig:running}) Our goal is to decide the exact room the device is in. 
+We conclude WiFi connectivity data as dirty for LBS in the following two aspects. First,  there exist some time interval where no connectivities are captured by WiFi APs. We need to identify if the device is out of building or disconnected but in building, which is formulated as xxx. \footnote{daokun: to summary dirty data from the aspect of gaps}; Second, it is hard to generate fine-grained location information, i.e., room-level location. Considering a typical scenario, when a device is connected to some WiFi access point (AP), we can conclude that the device is in the region covered by that AP, but no idea of which exact room as a region often covers multiple rooms. The goal is find the exact room among candidates, which could be viewed as a \textit{value disambiguation} problem. 
+As an illustrating example, WiFi connectivity data comes in the format of $\{$\textit{Mac Address, WiFi AP, Timestamp}$\}$. As shown in Table~\ref{tab:connectivity}, for device with Mac Address \textit{5f0b}, it is captured by $AP_{1}$ at ``14:16:12'' and ``14:25:36 '', but we do not know the location information between them. Another device with Mac address \textit{258e} connected to WiFi AP \textit{2} at time ``\textit{2018-03-14 12:03:35}''. Now we can draw that this device must be in one of the rooms covered by $AP_2$, which are  $\{2002,2004,2014,2012,2008,2066,2051,\\2059,2052,2054,2056,2058\}$ (From Fig~\ref{fig:running}) Our goal is to decide the exact room the device is in. 
+
+The cleaning of dirty WiFi data poses several challenges. First, \footnote{daokun: describe challenges in your part}; Second, value disambiguation for room-level location is very tricky only based on WiFi connectivity data as a-priori knowledge is limited. Third, since WiFi data comes on streams, the technique has to be very efficient to support online location determination; Finally, the number of devices captured by WiFi APs within a builiding could be large, so that we need to address scalability issue very carefully to be applicable in large systems. 
 
 \begin{figure}[!htb]
 	\centering
@@ -31,3 +36,5 @@ As an illustrating example, WiFi connectivity data comes in the format of $\{$\t
 	\end{tabular}
 	\vspace{-0.5em}
 \end{table} 
+
+The rest of paper is structured as follows. Section~\ref{sec:def} defines problems formally. Section~\ref{sec:room} and ~\ref{sec:building} describes the techniques to clean WiFi data in building, region and room levels. Scalability issues are discussed in Section~\ref{sec:scalability}. Section~\ref{sec:evaluation} evaluates our methods, Section~\ref{sec:related} presents the related work and Section~\ref{sec:conclusion} concludes paper. 
