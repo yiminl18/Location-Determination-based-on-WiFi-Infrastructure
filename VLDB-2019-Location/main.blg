@@ -11,46 +11,50 @@ Database file #1: vldb_sample.bib
 -- IEEEtran.bst version 1.13 (2008/09/30) by Michael Shell.
 -- http://www.michaelshell.org/tex/ieeetran/bibtex/
 -- See the "IEEEtran_bst_HOWTO.pdf" manual for usage information.
+Warning--empty author in apple
+Warning--empty journal in apple
+Warning--empty year in apple
 
 Done.
-You've used 1 entry,
+You've used 16 entries,
             4039 wiz_defined-function locations,
-            818 strings with 7390 characters,
-and the built_in function-call counts, 1072 in all, are:
-= -- 82
-> -- 25
-< -- 11
-+ -- 14
-- -- 4
-* -- 68
-:= -- 169
-add.period$ -- 2
-call.type$ -- 1
-change.case$ -- 1
-chr.to.int$ -- 24
-cite$ -- 1
-duplicate$ -- 66
-empty$ -- 67
-format.name$ -- 5
-if$ -- 226
+            908 strings with 10820 characters,
+and the built_in function-call counts, 14974 in all, are:
+= -- 1171
+> -- 397
+< -- 151
++ -- 222
+- -- 65
+* -- 748
+:= -- 2086
+add.period$ -- 40
+call.type$ -- 16
+change.case$ -- 16
+chr.to.int$ -- 363
+cite$ -- 19
+duplicate$ -- 1023
+empty$ -- 1184
+format.name$ -- 80
+if$ -- 3490
 int.to.chr$ -- 0
-int.to.str$ -- 1
-missing$ -- 11
-newline$ -- 26
-num.names$ -- 1
-pop$ -- 21
+int.to.str$ -- 16
+missing$ -- 175
+newline$ -- 71
+num.names$ -- 15
+pop$ -- 410
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 75
+skip$ -- 1136
 stack$ -- 0
-substring$ -- 57
-swap$ -- 62
-text.length$ -- 3
+substring$ -- 862
+swap$ -- 891
+text.length$ -- 30
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 1
-warning$ -- 0
-while$ -- 5
-width$ -- 2
-write$ -- 33
+type$ -- 16
+warning$ -- 3
+while$ -- 75
+width$ -- 18
+write$ -- 177
+(There were 3 warnings)
