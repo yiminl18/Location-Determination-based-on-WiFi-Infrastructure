@@ -1,14 +1,59 @@
 \section{Introduction}
 \label{sec:intro}
 
+{\bf Sharad:
+-- 
+ 
+Locating people within buildings is
+important for variety of application context. E.g., occupancy based hvac control, building analytic services
+that characterize how buildings are used, location-based services such as
+where an employee is, etc. For many of
+these apps locating upto the room level is all that is needed \cite{} and explain.
+
+In this paper we consider the problem of using wifi connectivity data for room level localization. While several indoor localization technolgies exist, they require infratruutre and changes by the user. It is not passive.
+
+In contrast wifi ap stuff is passive 
+ Essentially user connect to wifi AP, that raises an event which  can be captured using snmp traps -- explain.
+
+Since wifi connectiity  ubiquitous if we can use it to locate upto room level reliably, it can serve as a vehicle for
+several apps.
+
+Exploiting wifi AP connectivity, however, is challenge for several reasons:
+
+a) devices only connect sporadically. A missing data might not actually mean user not there. People can also disconnect devices?
+
+b) A wifi AP covers several rooms -
+
+We postulate the problem as that of data cleaning problems.... 
+
+explain the problems.
+
+Explain overview of approach and explain how well you do.
+
+Sensor data cleaning has beenc onsidered in hte past... refer to RFID papers ... explain how you differ.
+
+}
+
+
+-- lots of work on indoor localization, 
+For example, blue tooth beacons, or ultrawide band localization, wifi triagulation etc. 
+
+-- however, it requires instrumentation either of the building, or user, or both and difficult to achieve. Even for
+wifi triagulation/fingerprinting user has to participate.
+
+-- A passive strategy is through connectivity data of wifi. wifi routers generate data and through snmp traps one can get coarse level location of person. While there are apps which require fine grained location, many apps have requirements only for room level location. \cite{give references}. Explain why this is enough for some apps.
+
+In this paper, we consider the problem of using wifi connectibity to get location data. 
+
+}
 The pervasiveness of WiFi infrastructure enables a large number of services based on it. In this paper we focus on Location Based Service (LBS).
 LBSs use the location of a device (e.g., a smart-phone)  and  hence  of  the  owner  to  offer  personalized  information. Thousands of interesting applications have been built based on such localization techniques.~\cite{akyildiz2002survey}
 However, WiFi data is far from enough to provide location information with high quality if we use it directly. 
 
-We conclude WiFi connectivity data as dirty for LBS in the following two aspects. First,  there exist some time interval where no connectivities are captured by WiFi APs. We need to identify if the device is out of building or disconnected but in building, which is formulated as xxx. \footnote{daokun: to summary dirty data from the aspect of gaps}; Second, it is hard to generate fine-grained location information, i.e., room-level location. Considering a typical scenario, when a device is connected to some WiFi access point (AP), we can conclude that the device is in the region covered by that AP, but no idea of which exact room as a region often covers multiple rooms. The goal is find the exact room among candidates, which could be viewed as a \textit{value disambiguation} problem. 
+We conclude WiFi connectivity data as dirty for LBS in the following two aspects. First,  there exists some time interval where no connectivity is captured by WiFi APs. We need to identify if the device is out of the building or disconnected but in the building, which is formulated as xxx. \footnote{daokun: to summary dirty data from the aspect of gaps Question: Can we call gap dirty data?}; Second, it is hard to generate fine-grained location information, i.e., room-level location. Considering a typical scenario, when a device is connected to some WiFi access point (AP), we can conclude that the device is in the region covered by that AP, but no idea of which exact room as a region often covers multiple rooms. The goal is find the exact room among candidates, which could be viewed as a \textit{value disambiguation} problem. 
 As an illustrating example, WiFi connectivity data comes in the format of $\{$\textit{Mac Address, WiFi AP, Timestamp}$\}$. As shown in Table~\ref{tab:connectivity}, for device with Mac Address \textit{5f0b}, it is captured by $AP_{1}$ at ``14:16:12'' and ``14:25:36 '', but we do not know the location information between them. Another device with Mac address \textit{258e} connected to WiFi AP \textit{2} at time ``\textit{2018-03-14 12:03:35}''. Now we can draw that this device must be in one of the rooms covered by $AP_2$, which are  $\{2002,2004,2014,2012,2008,2066,2051,\\2059,2052,2054,2056,2058\}$ (From Fig~\ref{fig:running}) Our goal is to decide the exact room the device is in. 
 
-The cleaning of dirty WiFi data poses several challenges. First, \footnote{daokun: describe challenges in your part}; Second, value disambiguation for room-level location is very tricky only based on WiFi connectivity data as a-priori knowledge is limited. Third, since WiFi data comes on streams, the technique has to be very efficient to support online location determination; Finally, the number of devices captured by WiFi APs within a builiding could be large, so that we need to address scalability issue very carefully to be applicable in large systems. 
+The cleaning of dirty WiFi data poses several challenges. First, predicting the possible location of ... \footnote{daokun: describe challenges in your part}; Second, value disambiguation for room-level location is very tricky only based on WiFi connectivity data as a-priori knowledge is limited. Third, since WiFi data comes on streams, the technique has to be very efficient to support online location determination; Finally, the number of devices captured by WiFi APs within a builiding could be large, so that we need to address scalability issue very carefully to be applicable in large systems. 
 
 To address the above challenges in developing fine grained location based on AP data, our approach exploits contextual information that is present in the connectivity data and/or metadata about users. In particular, we leverage knowledge from historical connectivity data such as the APs to which a user device typically connects, which other devices are connected to the same APs at the same time, and the affinity of a user to specific areas in the space. This knowledge can be extracted from spaces where their inhabitants have predictable patterns (e.g., an office or a university building), which are the main scope of our approach. Leveraging such models, our system is able to calculate the probability of a device being present in the space but disconnected from the network. Furthermore, for such events, our approach can compute a prediction on which AP the disconnected device would be connected to based on the context such as the day and time. Then, it predicts the room in which the device would be located given the AP to which it is connected or predicted to be connected. This is done based on a metric of affinity among devices and between devices and rooms based on which we propose a graph-based algorithm for prediction. 
 
