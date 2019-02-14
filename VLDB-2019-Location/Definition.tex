@@ -1,9 +1,13 @@
 \section{Problem Definition}
 \label{sec:def}
-Not get started with this part because some models are not fixed. 
-Comparing with Percom paper, which part should be changed and which part should be kept? 
-\begin{itemize}
-    \item Room disambiguation;
-    \item name for subproblem 1?
-    \item name for subproblem 2?
-\end{itemize}
+In this section, we describe our problem formulation more precisely and overview our methods. We begin by first describing notations we will need. 
+
+\textbf{Space Model.} We model space as a hierarchy of {\em buildings}, {\em regions}, and {\em rooms} though our approach can easily be generalized to other spatial models. Regions, as will become clear, are defined  by  the coverage of a WiFi AP. Further, rooms are classified into two types: \emph{public}, which are shared by multiple users generally (e.g., meeting rooms, lounges, kitchens, food courts, etc.); and \emph{private}, which are owned by a specific user(s) (e.g., a person's office). This classification of rooms is metadata that is commonly available and it will be exploited by our approach.
+In the example of Fig.~\ref{fig:running} the building is "Donald Bren Hall building" at UCI and it contains, among others, the rooms in the figure (e.g., 2065, 2072, etc.). Notice that  rooms have been color coded based on their type -- dark orange rooms are offices (which we classify as private), whereas yellow, light orange, and green are conference rooms, laboratories, and rest rooms (which are considered public).
+
+\textbf{WiFi AP Connectivity Data For Localization.}
+We assume that a given space is covered by several {\em WiFi APs} that are used to provide users with Internet connectivity. For example, in Fig.~\ref{fig:running}, there are four WiFi APs covering the space. Each WiFi AP has an associated coverage~\cite{tervonen2016applying} that models the region of the space that the AP serves - coverage of two WiFi APs may overlap. 
+
+We assume that WiFi APs log connectivity events when a device connects to a certain WiFi AP like the ones in Table~\ref{tab:wifi}. Such events can be captured by current WiFi APs using SNMP traps, for instance. 
+A connectivity event generally includes information such as the MAC address of the device, the MAC address (or id) of the WiFi AP, and the timestamp of the event. Since WiFi APs are fixed in location, such an event localizes the connected device to the region associated with the corresponding WiFi AP. 
+

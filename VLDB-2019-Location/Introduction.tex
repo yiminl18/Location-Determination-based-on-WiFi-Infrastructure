@@ -51,7 +51,7 @@ As an illustrating example, WiFi connectivity data comes in the format of $\{$\t
 %Explain overview of approach and explain how well you do.
 To address the above challenges in developing fine grained location based on AP data, our approach exploits contextual information that is present in the connectivity data and/or metadata about users. In particular, we leverage knowledge from historical connectivity data such as the APs to which a user device typically connects, which other devices are connected to the same APs at the same time, and the affinity of a user to specific areas in the space. This knowledge can be extracted from spaces where their inhabitants have predictable patterns (e.g., an office or a university building), which are the main scope of our approach. Leveraging such models, our system is able to calculate the probability of a device being present in the space but disconnected from the network. Furthermore, for such events, our approach can compute a prediction on which AP the disconnected device would be connected to based on the context such as the day and time. Then, it predicts the room in which the device would be located given the AP to which it is connected or predicted to be connected. This is done based on a metric of affinity among devices and between devices and rooms based on which we propose a graph-based algorithm for prediction. 
 
-Sensor data cleaning has been considered in the past, such as RFID data cleaning~\cite{jeffery2006adaptive,baba2016learning}. 
+Sensor data cleaning has been considered in the past, such as RFID data cleaning~\cite{jeffery2006adaptive,baba2016learning}. \footnote{daokun: explain how our problem differs with them in concise words}
 
 
 
