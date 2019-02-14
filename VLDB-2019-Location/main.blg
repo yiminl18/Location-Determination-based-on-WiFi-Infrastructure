@@ -16,45 +16,45 @@ Warning--empty journal in apple
 Warning--empty year in apple
 
 Done.
-You've used 16 entries,
+You've used 17 entries,
             4039 wiz_defined-function locations,
-            908 strings with 10820 characters,
-and the built_in function-call counts, 14974 in all, are:
-= -- 1171
-> -- 397
-< -- 151
-+ -- 222
-- -- 65
-* -- 748
-:= -- 2086
-add.period$ -- 40
-call.type$ -- 16
-change.case$ -- 16
-chr.to.int$ -- 363
-cite$ -- 19
-duplicate$ -- 1023
-empty$ -- 1184
-format.name$ -- 80
-if$ -- 3490
+            913 strings with 11104 characters,
+and the built_in function-call counts, 15749 in all, are:
+= -- 1228
+> -- 418
+< -- 156
++ -- 232
+- -- 69
+* -- 785
+:= -- 2198
+add.period$ -- 43
+call.type$ -- 17
+change.case$ -- 17
+chr.to.int$ -- 375
+cite$ -- 20
+duplicate$ -- 1080
+empty$ -- 1259
+format.name$ -- 85
+if$ -- 3673
 int.to.chr$ -- 0
-int.to.str$ -- 16
-missing$ -- 175
-newline$ -- 71
-num.names$ -- 15
-pop$ -- 410
+int.to.str$ -- 17
+missing$ -- 186
+newline$ -- 74
+num.names$ -- 16
+pop$ -- 439
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 2
-skip$ -- 1136
+skip$ -- 1194
 stack$ -- 0
-substring$ -- 862
-swap$ -- 891
-text.length$ -- 30
+substring$ -- 891
+swap$ -- 933
+text.length$ -- 31
 text.prefix$ -- 0
 top$ -- 5
-type$ -- 16
+type$ -- 17
 warning$ -- 3
-while$ -- 75
-width$ -- 18
-write$ -- 177
+while$ -- 80
+width$ -- 19
+write$ -- 186
 (There were 3 warnings)
